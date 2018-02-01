@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contacts> 
+	<linkman id="1">
+		<name>Will</name>
+		<email>iwiller@sina.cn</email>
+		<address>广州</address>
+		<group>小码哥教育</group>
+	</linkman> 
+	<linkman id="2">
+		<name>Stef</name>
+		<email>lanyotech@qq.com</email>
+		<address>广州</address>
+		<group>小码哥教育</group>
+	</linkman>
+</contacts>
