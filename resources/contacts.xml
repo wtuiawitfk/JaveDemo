@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<contacts> 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><contacts>
 	<linkman id="1">
 		<name>Will</name>
-		<email>iwiller@sina.cn</email>
+		<email>hhandgg@outlook.com</email>
 		<address>广州</address>
 		<group>小码哥教育</group>
 	</linkman> 
@@ -12,4 +11,5 @@
 		<address>广州</address>
 		<group>小码哥教育</group>
 	</linkman>
+	
 </contacts>
