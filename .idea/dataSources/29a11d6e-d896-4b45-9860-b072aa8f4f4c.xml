@@ -4,12 +4,12 @@
     <root id="1">
       <DefaultCasing>mixed/mixed</DefaultCasing>
     </root>
-    <schema id="2" parent="1" name="hutubill">
+    <schema id="2" parent="1" name="information_schema">
       <Current>1</Current>
-      <Visible>1</Visible>
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="3" parent="1" name="information_schema">
+    <schema id="3" parent="1" name="jdbcdemo">
+      <Visible>1</Visible>
       <Collation>utf8_general_ci</Collation>
     </schema>
     <schema id="4" parent="1" name="mysql">
@@ -909,97 +909,30 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="229" parent="2" name="category">
+    <table id="229" parent="3" name="t_student">
       <Engine>InnoDB</Engine>
-      <Collation>utf8_general_ci</Collation>
     </table>
-    <table id="230" parent="2" name="config">
-      <Engine>InnoDB</Engine>
-      <Collation>utf8_general_ci</Collation>
-    </table>
-    <table id="231" parent="2" name="record">
-      <Engine>InnoDB</Engine>
-      <Collation>utf8_general_ci</Collation>
-    </table>
-    <column id="232" parent="229" name="id">
+    <column id="230" parent="229" name="id">
       <Position>1</Position>
-      <DataType>int(11)|0</DataType>
+      <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="233" parent="229" name="name">
+    <column id="231" parent="229" name="name">
       <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
+      <DataType>varchar(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="234" parent="229" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="235" parent="230" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="236" parent="230" name="key_">
-      <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="237" parent="230" name="value">
-      <Position>3</Position>
-      <DataType>varchar(255)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="238" parent="230" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="239" parent="231" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="240" parent="231" name="spend">
-      <Position>2</Position>
-      <DataType>int(11)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="241" parent="231" name="cid">
+    <column id="232" parent="229" name="age">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="231" name="comment">
-      <Position>4</Position>
-      <DataType>varchar(255)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="243" parent="231" name="date">
-      <Position>5</Position>
-      <DataType>date|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="244" parent="231" name="fk_record_category">
-      <ColNames>cid</ColNames>
-    </index>
-    <key id="245" parent="231" name="PRIMARY">
+    <key id="233" parent="229" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="246" parent="231" name="fk_record_category">
-      <ColNames>cid</ColNames>
-      <RefSchemaName>hutubill</RefSchemaName>
-      <RefTableName>category</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
   </database-model>
 </dataSource>
