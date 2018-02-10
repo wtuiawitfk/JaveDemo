@@ -14,7 +14,7 @@ class StudentDaoTest {
 
     @Test
     void save() {
-        Student student = new Student("大鱼儿", 43);
+        Student student = new Student("鱼儿", 43);
         dao.save(student);
     }
 
@@ -25,7 +25,7 @@ class StudentDaoTest {
 
     @Test
     void update() {
-        Student student = new Student("乔峰", 38);
+        Student student = new Student("肖峰", 38);
         dao.update(2L,student);
     }
 

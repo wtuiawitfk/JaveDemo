@@ -12,24 +12,18 @@ public class StudentDaoImpl implements IStudentDao {
     @Override
     public void save(Student student) {
         //insert into t_student(name,age) values('student.getName()','sutdent.getAge()');
-        StringBuilder sql = new StringBuilder(80);
-        sql.append("insert into t_student(name,age) values(");
-        sql.append("'");
-        sql.append(student.getName());
-        sql.append("'");
-        sql.append(",");
-        sql.append(student.getAge());
-        sql.append(");");
-        System.out.println(sql.toString());
+        String sql = "insert into t_student(name,age) values(?,?);";
         Connection conn = JdbcUtil.getConn();
-        Statement st = null;
+        PreparedStatement ps = null;
         try {
-            st = conn.createStatement();
-            st.execute(sql.toString());
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, student.getName());
+            ps.setInt(2, student.getAge());
+            ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JdbcUtil.close(conn, st);
+            JdbcUtil.close(conn, ps);
         }
     }
 
@@ -53,27 +47,20 @@ public class StudentDaoImpl implements IStudentDao {
     @Override
     public void update(Long id, Student newStu) {
         //update t_student set name=newStu.getName(),age=newStu.getAge where id=id;
-        StringBuilder sql = new StringBuilder(80);
-        sql.append("update t_student set name=");
-        sql.append("'");
-        sql.append(newStu.getName());
-        sql.append("'");
-        sql.append(",");
-        sql.append("age=");
-        sql.append(newStu.getAge());
-        sql.append(" ");
-        sql.append("where id=");
-        sql.append(id);
+        String sql = "update t_student set name=?,age=? where id=?";
         System.out.println(sql.toString());
         Connection conn = JdbcUtil.getConn();
-        Statement st = null;
+        PreparedStatement pst = null;
         try {
-            st = conn.createStatement();
-            st.execute(sql.toString());
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, newStu.getName());
+            pst.setInt(2, newStu.getAge());
+            pst.setLong(3, id);
+            pst.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JdbcUtil.close(conn, st);
+            JdbcUtil.close(conn, pst);
         }
     }
 
