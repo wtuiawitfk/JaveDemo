@@ -1,6 +1,7 @@
 package com.yuhh.middle.jdbc.smis.util;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
+import org.apache.commons.dbcp.BasicDataSourceFactory;
 
 import javax.sql.DataSource;
 import java.io.InputStream;
@@ -10,7 +11,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-public class JdbcUtil {
+/**
+ * DBCP的一个工具类
+ */
+public class DruidUtil {
     //需要获取的DataSource对象
     private static DataSource dataSource;
 
@@ -84,5 +88,6 @@ public class JdbcUtil {
         }
     }
 
-    private JdbcUtil(){}
+    private DruidUtil(){}
+
 }

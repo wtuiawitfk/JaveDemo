@@ -38,5 +38,8 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="commons-dbcp-1.4" level="project" />
+    <orderEntry type="library" name="commons-pool-1.5.6" level="project" />
+    <orderEntry type="library" name="druid-1.0.15" level="project" />
   </component>
 </module>

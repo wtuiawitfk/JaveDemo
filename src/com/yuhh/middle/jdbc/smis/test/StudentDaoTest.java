@@ -3,6 +3,7 @@ package com.yuhh.middle.jdbc.smis.test;
 import com.yuhh.middle.jdbc.smis.dao.IStudentDao;
 import com.yuhh.middle.jdbc.smis.dao.impl.StudentDaoImpl;
 import com.yuhh.middle.jdbc.smis.domain.Student;
+import com.yuhh.middle.jdbc.template.HibernateTemplate;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -14,13 +15,19 @@ class StudentDaoTest {
 
     @Test
     void save() {
-        Student student = new Student("鱼儿", 43);
-        dao.save(student);
+        Student student = new Student("小鱼儿", 32);
+        //dao.save(student);
+        try {
+            HibernateTemplate.save(student);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Test
     void delete() {
-        dao.delete(3L);
+        dao.delete(1L);
     }
 
     @Test

@@ -1,8 +1,10 @@
 package com.yuhh.middle.jdbc.smis.util;
 
-import com.alibaba.druid.pool.DruidDataSourceFactory;
+import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp.BasicDataSourceFactory;
 
 import javax.sql.DataSource;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -10,7 +12,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-public class JdbcUtil {
+/**
+ * DBCP的一个工具类
+ */
+public class DBCPUtil {
     //需要获取的DataSource对象
     private static DataSource dataSource;
 
@@ -18,11 +23,11 @@ public class JdbcUtil {
     static {
         Properties p = new Properties();
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        InputStream in = classLoader.getResourceAsStream("druid.properties");
+        InputStream in = classLoader.getResourceAsStream("dbcp.properties");
         try {
             p.load(in);
             //初始化DataSource对象
-            dataSource = DruidDataSourceFactory.createDataSource(p);
+            dataSource = BasicDataSourceFactory.createDataSource(p);
         } catch (Exception e) {
             throw new RuntimeException("配置文件加载错误！", e);
         }
@@ -83,6 +88,4 @@ public class JdbcUtil {
             }
         }
     }
-
-    private JdbcUtil(){}
 }
